@@ -4,7 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        
         List<int> numbers = new List<int>();
         int number = -1;
 
@@ -21,7 +20,6 @@ class Program
             {
                 numbers.Remove(number);
             }
-
         } while (number != 0);
         Console.WriteLine(numbers.Sum());
         Console.WriteLine(numbers.Average());
