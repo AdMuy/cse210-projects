@@ -37,7 +37,6 @@ public class Journal
             int i = 0;
             string[] parts = line.Split("~");
             Console.WriteLine(parts[i]);
-            // Still need to know how to iterate through all of the parts
             // And then have the loaded parts be added to the live
             // So if Displayed is called after that, the correct lines appear.
         }

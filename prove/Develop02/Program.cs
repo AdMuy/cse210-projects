@@ -6,7 +6,6 @@ class Program
     {        
         PromptGenerator generator = new PromptGenerator();
         Journal journal1 = new Journal();
-        Entry newEntry = new Entry();
 
         DateTime theCurrentTime = DateTime.Now;
         string dateText = theCurrentTime.ToShortDateString();
@@ -26,6 +25,7 @@ class Program
 
             if (option == 1)
             {
+                Entry newEntry = new Entry();
                 newEntry._promptText = generator.GetRandomPrompt();
                 Console.WriteLine($"{newEntry._promptText}");
                 newEntry._entryText = Console.ReadLine();
@@ -40,9 +40,10 @@ class Program
 
             else if (option == 3)
             {
+                Entry newEntry = new Entry();
                 Console.Write("What is the name of the file? ");
                 journal1.LoadFromFile(Console.ReadLine());
-                
+                journal1.AddEntry(newEntry);
             }
 
             else if (option == 4)
