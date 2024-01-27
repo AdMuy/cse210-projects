@@ -42,8 +42,9 @@ class Program
             {
                 Entry newEntry = new Entry();
                 Console.Write("What is the name of the file? ");
-                journal1.LoadFromFile(Console.ReadLine());
-                journal1.AddEntry(newEntry);
+                
+                journal1 = journal1.LoadFromFile(Console.ReadLine());
+                
             }
 
             else if (option == 4)

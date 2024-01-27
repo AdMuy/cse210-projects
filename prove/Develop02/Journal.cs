@@ -23,23 +23,29 @@ public class Journal
         {
             foreach (Entry entry in _entries)
             {
-                outputFile.WriteLine($"Date: {entry._date} - Prompt: {entry._promptText} \n{entry._entryText}\n"+"~");
+                outputFile.WriteLine($"{entry._date}~{entry._promptText}~{entry._entryText}");
             }
         }
     }
     
-    public void LoadFromFile(string file)
+    public Journal LoadFromFile(string file)
     {
+        Journal journal1 = new Journal();
         string[] lines = File.ReadAllLines(file);
-
         foreach (string line in lines)
         {
-            int i = 0;
+            // int i = 0;
+            Entry newEntry = new Entry();
             string[] parts = line.Split("~");
-            Console.WriteLine(parts[i]);
+            
+            newEntry._date = parts[0];
+            newEntry._promptText = parts[1];
+            newEntry._entryText = parts[2];
             // And then have the loaded parts be added to the live
-            // So if Displayed is called after that, the correct lines appear.
-        }
+            // So if Displayed is called after that, the correct lines appear.;
+            journal1.AddEntry(newEntry);
+        }  
+          return journal1;
     }
 }
 
