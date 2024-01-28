@@ -4,13 +4,14 @@ class Program
 {
     static void Main(string[] args)
     {
+        // Calls most of the classes we're going to use in the program.
         PromptGenerator generator = new PromptGenerator();
         Journal journal1 = new Journal();
         DateTime theCurrentTime = DateTime.Now;
         string dateText = theCurrentTime.ToShortDateString();
 
         int option = -1;
-
+        //Strats the loop by asking the user to select an option.
         do 
         {
             Console.WriteLine("Please select one of the following:");
@@ -21,7 +22,8 @@ class Program
             Console.WriteLine("5. Quit");
             Console.Write("What would you like to do? ");
             option = int.Parse(Console.ReadLine());
-
+            // The user will be able to add a new entry to their journal based on their response
+            // to the random prompt given. 
             if (option == 1)
             {
                 Entry newEntry = new Entry();
@@ -34,7 +36,7 @@ class Program
                 Console.WriteLine($"Entry has been added to your journal");
                 Console.WriteLine($"------------------------------------");
             }
-
+            // The user can display all of the entries in their journal.
             else if (option == 2)
             {
                 journal1.DisplayAll();
@@ -42,7 +44,9 @@ class Program
                 Console.WriteLine($"Entries displayed successfully.");
                 Console.WriteLine($"------------------------------------");
             }
-
+            // The user can load a file with previous entries with the
+            // file name. These entries will be added to the journal and the can
+            // be displayed.
             else if (option == 3)
             {
                 Console.Write("What is the name of the file? ");
@@ -51,7 +55,8 @@ class Program
                 Console.WriteLine("The file has been successfully loaded.");
                 Console.WriteLine($"------------------------------------");   
             }
-
+            // The user can save a file with all the entries in their journal.
+            // They can input the filename they want. 
             else if (option == 4)
             {
                 Console.Write("What is the name of the file? ");
@@ -60,6 +65,7 @@ class Program
                 Console.WriteLine("The file has been successfully saved.");
                 Console.WriteLine($"------------------------------------");
             }
+        // The program will be closed.
         } while (option != 5);
     }
 }
