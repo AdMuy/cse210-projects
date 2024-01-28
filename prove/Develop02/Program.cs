@@ -3,7 +3,7 @@ using System;
 class Program
 {
     static void Main(string[] args)
-    {        
+    {
         PromptGenerator generator = new PromptGenerator();
         Journal journal1 = new Journal();
         DateTime theCurrentTime = DateTime.Now;
