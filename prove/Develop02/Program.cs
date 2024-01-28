@@ -30,25 +30,35 @@ class Program
                 newEntry._entryText = Console.ReadLine();
                 newEntry._date = dateText;
                 journal1.AddEntry(newEntry);
+                Console.WriteLine($"------------------------------------");
+                Console.WriteLine($"Entry has been added to your journal");
+                Console.WriteLine($"------------------------------------");
             }
 
             else if (option == 2)
             {
                 journal1.DisplayAll();
+                Console.WriteLine($"------------------------------------");
+                Console.WriteLine($"Entries displayed successfully.");
+                Console.WriteLine($"------------------------------------");
             }
 
             else if (option == 3)
             {
                 Console.Write("What is the name of the file? ");
                 journal1 = journal1.LoadFromFile(Console.ReadLine());
-                Console.WriteLine("The file has been successfully loaded.");   
+                Console.WriteLine($"------------------------------------");
+                Console.WriteLine("The file has been successfully loaded.");
+                Console.WriteLine($"------------------------------------");   
             }
 
             else if (option == 4)
             {
                 Console.Write("What is the name of the file? ");
                 journal1.SaveToFile(Console.ReadLine());
+                Console.WriteLine($"------------------------------------");
                 Console.WriteLine("The file has been successfully saved.");
+                Console.WriteLine($"------------------------------------");
             }
         } while (option != 5);
     }
