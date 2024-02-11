@@ -15,15 +15,53 @@ public class Scripture
     public void HideRandomWords(int numberToHide)
     {
         var random = new Random();
-        int numberOfWords = random.Next(numberToHide, _words.Count);
-        int indexWords = random.Next(0, _words.Count);
 
-        // int alreadyHidden = 0;
-        // if (alreadyHidden == _w)
-        for (int i = 0; i < numberOfWords; i++)
+        int hiddenCount = 0;
+        do
         {
-            _words[indexWords].Hide();
+            int indexWords = random.Next(0, _words.Count);
+            // for (int i = 0; i < indexWords; i++)
+            // {
+                if (_words[indexWords].IsHidden() == false)
+                {
+                    _words[indexWords].Hide();
+                    hiddenCount++;
+                }
+                else
+                {
+                indexWords = random.Next(0, _words.Count);
+                // hiddenCount++;
+                }
+            // }
+
+            // int indexWords = random.Next(0, _words.Count);
+            // if (_words[indexWords].IsHidden() != true)
+            // {
+            //     _words[indexWords].Hide();
+            //     hiddenCount++;
+            // }
+            // else
+            // {
+            //     indexWords = random.Next(0, _words.Count);
+            //     hiddenCount++;
+            // }
         }
+        while (hiddenCount < numberToHide);
+        
+        // int indexWords = random.Next(0, _words.Count);
+        // for (int i = 0; i < numberToHide; i++)
+        // {
+        //     if (_words[indexWords].IsHidden() == false)
+        //     {
+        //         _words[indexWords].Hide();
+        //     }
+        //     else
+        //     {
+        //     indexWords = random.Next(0, _words.Count);
+        //     }
+        // }
+        //     // _words[indexWords].Hide();
+
     }
 
     public string GetDisplayText()
