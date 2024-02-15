@@ -18,8 +18,11 @@ public class Scripture
 
         int hiddenCount = 0;
         int indexWords = random.Next(0, _words.Count);
-        do
+        int numberOfWords = _words.Count();
+        if (numberToHide < numberOfWords)
         {
+            while (hiddenCount < numberToHide)
+            {
                 if (_words[indexWords].IsHidden() == false)
                 {
                     _words[indexWords].Hide();
@@ -28,10 +31,26 @@ public class Scripture
                 else
                 {
                 indexWords = random.Next(0, _words.Count);
-                // hiddenCount++;
                 }
+                numberOfWords = numberOfWords - numberToHide;
+            } 
         }
-        while (hiddenCount < numberToHide);
+        else 
+        {
+            hiddenCount = numberOfWords;
+            while (hiddenCount < numberToHide)
+            {
+                if (_words[indexWords].IsHidden() == false)
+                {
+                    _words[indexWords].Hide();
+                    hiddenCount++;
+                }
+                else
+                {
+                indexWords = random.Next(0, _words.Count);
+                }
+            } 
+        }
     }
 
     public string GetDisplayText()
